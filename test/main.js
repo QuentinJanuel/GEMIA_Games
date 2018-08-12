@@ -1,4 +1,16 @@
+import Test from "./test.js";
+
+Test.sayHello();
+
 let ang = 0, ang2 = 0;
+
+Controllers.onJoin = () => {
+	console.log("someone join");
+}
+Controllers.onQuit = () => {
+	console.log("someone left");
+}
+Controllers.onPressed("home", controller => controller.vibrate(100));
 
 Screen.loop = () => {
 	Screen.clearAll();
@@ -10,18 +22,17 @@ Screen.loop = () => {
 		font: "Comic Sans MS",
 		size: 100
 	});
-	//
-	if(Controllers.length > 0){
-		const angle = Controllers[0].joystick.left.angle;
+	
+	let main = Controllers.getMain();
+	if(main){
+		const angle = main.joysticks.left.angle;
+		const angle2 = main.joysticks.right.angle;
 		if(angle != 0)
-			ang = -(angle-270)*Math.PI/90;
+			ang = angle-Math.PI/2;
+		if(angle2 != 0)
+			ang2 = angle2-Math.PI/2;
 	}
-	if(Controllers.length > 1){
-		const angle = Controllers[1].joystick.left.angle;
-		if(angle != 0)
-			ang2 = -(angle-270)*Math.PI/90;
-	}
-	//
+	
 	Screen.drawImage(Screen.dimensions.width/3, Screen.dimensions.height/2, "sprite", {
 		xscale: 0.5,
 		yscale: 0.5,
