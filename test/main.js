@@ -10,11 +10,26 @@ Controllers.onJoin = () => {
 Controllers.onQuit = () => {
 	console.log("someone left");
 }
-Controllers.onPressed("home", controller => controller.vibrate(100));
+
+Controllers.onPressed("home", controller => {
+	console.log("home pressed");
+	controller.vibrate(100);
+});
+Controllers.onPressed("square", controller => {
+	console.log("square pressed");
+	controller.vibrate(100);
+});
+Controllers.onPressed("circle", controller => {
+	console.log("circle pressed");
+	controller.vibrate(100);
+});
 
 Screen.loop = () => {
+	let main = Controllers.getMain();
 	Screen.clearAll();
-	Screen.setColor("#00F");
+	Screen.setColor("#000");
+	if(main)
+		Screen.setColor(main.color);
 	Screen.drawRect(0, 0, 100, 100);
 	Screen.setColor("#F00");
 	Screen.drawCircle(300, 1000, 300);
@@ -22,8 +37,6 @@ Screen.loop = () => {
 		font: "Comic Sans MS",
 		size: 100
 	});
-	
-	let main = Controllers.getMain();
 	if(main){
 		const angle = main.joysticks.left.angle;
 		const angle2 = main.joysticks.right.angle;
@@ -32,7 +45,6 @@ Screen.loop = () => {
 		if(angle2 != 0)
 			ang2 = angle2-Math.PI/2;
 	}
-	
 	Screen.drawImage(Screen.dimensions.width/3, Screen.dimensions.height/2, "sprite", {
 		xscale: 0.5,
 		yscale: 0.5,
