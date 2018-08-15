@@ -2,6 +2,8 @@ import Test from "./test.js";
 
 Test.sayHello();
 
+Sound.get("japalovania").play();
+
 let ang = 0, ang2 = 0;
 
 Controllers.onJoin = () => {
@@ -16,10 +18,12 @@ Controllers.onPressed("home", controller => {
 	controller.vibrate(100);
 });
 Controllers.onPressed("square", controller => {
+	Sound.get("shoot").play();
 	console.log("square pressed");
 	controller.vibrate(100);
 });
 Controllers.onPressed("circle", controller => {
+	Sound.get("jump").play();
 	console.log("circle pressed");
 	controller.vibrate(100);
 });

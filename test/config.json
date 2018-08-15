@@ -21,13 +21,18 @@
 	],
 	"sounds": [
 		{
-			"name": "test",
-			"url": "test.mp3",
+			"name": "japalovania",
+			"url": "japalovania.mp3",
 			"type": "bgm"
 		},
 		{
-			"name": "test2",
-			"url": "test2.wav",
+			"name": "jump",
+			"url": "jump.wav",
+			"type": "sfx"
+		},
+		{
+			"name": "shoot",
+			"url": "shoot.wav",
 			"type": "sfx"
 		}
 	]
