@@ -57,7 +57,11 @@ Screen.loop = () => {
 	Screen.drawImage(Screen.dimensions.width*2/3, Screen.dimensions.height/2, "sprite", {
 		xscale: 0.5,
 		yscale: 0.5,
-		angle: ang2
+		angle: ang2,
+		colorize: {
+			color: "#F00",
+			value: 0.5
+		}
 	});
 	Screen.drawImage(100, 100, "icon");
 }
