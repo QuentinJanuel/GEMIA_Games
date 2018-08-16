@@ -23,9 +23,19 @@
 	],
 	"sounds": [
 		{
-			"name": "japalovania",
-			"url": "res/bgm/japalovania.mp3",
+			"name": "drums",
+			"url": "res/bgm/drums.mp3",
 			"type": "bgm"
+		},
+		{
+			"name": "trumpets",
+			"url": "res/bgm/trumpets.mp3",
+			"type": "bgm"
+		},
+		{
+			"name": "shoot",
+			"url": "res/sfx/shoot.wav",
+			"type": "sfx"
 		}
 	]
 }
