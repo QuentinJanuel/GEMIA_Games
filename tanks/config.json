@@ -1,0 +1,31 @@
+{
+	"name": "Tanks",
+	"dimensions": {
+		"width": 1920,
+		"height": 1080
+	},
+	"images": [
+		{
+			"name": "tankBase",
+			"url": "res/sprites/tankBase.png",
+			"origin": "center"
+		},
+		{
+			"name": "tankTurret",
+			"url": "res/sprites/tankTurret.png",
+			"origin": "center"
+		},
+		{
+			"name": "bullet",
+			"url": "res/sprites/bullet.png",
+			"origin": "center"
+		}
+	],
+	"sounds": [
+		{
+			"name": "japalovania",
+			"url": "res/bgm/japalovania.mp3",
+			"type": "bgm"
+		}
+	]
+}
