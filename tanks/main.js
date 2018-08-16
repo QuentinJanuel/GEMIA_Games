@@ -3,6 +3,12 @@
 var WIDTH = Screen.dimensions.width;
 var HEIGHT = Screen.dimensions.height;
 
+/*
+##############################
+SCENES
+##############################
+*/
+
 var scene;
 
 function changeScene(scenario){
@@ -11,14 +17,39 @@ function changeScene(scenario){
 
 var Scena1 = {
 	isIn: false,
+	players: [],
 	update: function(){
 		if(!Scena1.isIn){
 			Scena1.init();
 		}
+		Scena1.physic();
 		Screen.clearAll();
+		Scena1.draw();
 	},
 	init: function(){
-
+		Scena1.players = [];
+		for(var i=0; i<Controllers.getList().length; i++){
+			Scena1.players.push({
+				controller: i,
+				pos: {x: 0, y: 0},
+			});
+		}
+		Scena1.isIn = true;
+	},
+	draw: function(){
+		for(var i=0; i<Scena1.players.length; i++){
+			var client = Scena1.players[i];
+			var controller = Controllers.getList()[Scena1.players[i].controller];
+			Screen.setColor(controller.color);
+			Screen.drawRect(client.pos.x, client.pos.y, 50, 50);
+		}
+	},
+	physic: function(){
+		for(var i=0; i<Scena1.players.length; i++){
+			var controller = Controllers.getList()[Scena1.players[i].controller];
+			Scena1.players[i].pos.x += Math.cos(controller.joysticks.left.angle)*controller.joysticks.left.distance*2;
+			Scena1.players[i].pos.y -= Math.sin(controller.joysticks.left.angle)*controller.joysticks.left.distance*2;
+		}
 	}
 }
 
@@ -29,7 +60,10 @@ var Hub = {
 	button:[
 		{
 			text: "Play",
-			callback: changeScene.bind(this, Scena1)
+			callback: function(){
+				changeScene(Scena1);
+				//
+			}
 		},
 		{
 			text: "Settings",
@@ -102,7 +136,13 @@ var Hub = {
 	}
 };
 
-scene = Hub;
+/*
+##############################
+MAIN
+##############################
+*/
+
+changeScene(Hub);
 
 Screen.loop = function(){
 	scene.update();
