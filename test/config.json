@@ -35,5 +35,11 @@
 			"url": "shoot.wav",
 			"type": "sfx"
 		}
+	],
+	"fonts": [
+		{
+			"name": "mySuperFont",
+			"url": "IndieFlower.ttf"
+		}
 	]
 }

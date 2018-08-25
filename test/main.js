@@ -38,7 +38,7 @@ Screen.loop = () => {
 	Screen.setColor("#F00");
 	Screen.drawCircle(300, 1000, 300);
 	Screen.drawText(500, 200, "WE ARE THE BEST", {
-		font: "Comic Sans MS",
+		font: "mySuperFont",
 		size: 100
 	});
 	if(main){
